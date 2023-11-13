@@ -1,25 +1,29 @@
 import { Text, Grid, Title } from "@tremor/react";
 import HistoricalElectionResults from "./components/HistoricalElectionResults";
 import Contests from "./components/Contests";
-import Questions from "./components/Questions";
+import Ballots from "./components/Ballots";
 import Kpi from "./components/kpi";
+import Statistics from "./components/Statistics";
 
 const cardData = [
   {
     title: "Contests",
-    component: HistoricalElectionResults,
-    buttonText: "Click Here",
-  },
-  {
-    title: "Seats",
     component: Contests,
     buttonText: "Click Here",
   },
+
   {
-    title: "Voter stats",
-    component: Questions,
+    title: "Ballots",
+    component: Ballots,
     buttonText: "Click Here",
   },
+
+  {
+    title: "Statistics",
+    component: Statistics,
+    buttonText: "Click Here",
+  },
+
 ];
 
 export default function Home() {

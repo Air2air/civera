@@ -8,34 +8,26 @@ import {
   Grid,
 } from "@tremor/react";
 
-const colors = {
-  increase: "emerald",
-  moderateIncrease: "emerald",
-  unchanged: "orange",
-  moderateDecrease: "rose",
-  decrease: "rose",
-};
-
 const categories = [
   {
-    title: "Sales",
-    metric: "$ 12,699",
-    metricPrev: "$ 9,456",
-    delta: "34.3%",
+    title: "Contests",
+    metric: "15,778",
+    metricPrev: "15,023",
+    delta: "2.3%",
     deltaType: "moderateIncrease",
   },
   {
-    title: "Profit",
-    metric: "$ 40,598",
-    metricPrev: "$ 45,564",
-    delta: "10.9%",
+    title: "Ballots",
+    metric: "231,532",
+    metricPrev: "229,067",
+    delta: "0.3%",
     deltaType: "moderateDecrease",
   },
   {
-    title: "Customers",
-    metric: "1,072",
-    metricPrev: "856",
-    delta: "25.3%",
+    title: "Voter stats",
+    metric: "18,726",
+    metricPrev: "18,112",
+    delta: "0.9%",
     deltaType: "moderateIncrease",
   },
 ];
@@ -58,7 +50,7 @@ export default function Kpi() {
             <BadgeDelta deltaType={item.deltaType} />
             <Flex justifyContent="start" className="space-x-1 truncate">
               <Text>{item.delta}</Text>
-              <Text className="truncate">to previous month</Text>
+              <Text className="truncate">from previous month</Text>
             </Flex>
           </Flex>
         </Card>

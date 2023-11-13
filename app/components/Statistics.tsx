@@ -15,7 +15,7 @@ import {
   TabGroup,
 } from "@tremor/react";
 
-const ballots = [
+const statistics = [
   {
     title: "Measure A",
     value: 68,
@@ -81,31 +81,23 @@ const ballots = [
   },
 ];
 
-interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
-  value: number;
-  label?: string;
-  tooltip?: string;
-  showAnimation?: boolean;
-  bgcolor?: string | undefined;
-}
-
-export default function Contests() {
+export default function Statistics() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selectedLocation = selectedIndex === 0 ? "A" : "B";
 
   return (
     <Card className="max-w-md mx-auto">
       <Flex alignItems="start">
-        <Text>Recent Contests</Text>
-        <BadgeDelta deltaType="moderateIncrease">2.3%</BadgeDelta>
+        <Text>Recent Statistics</Text>
+        <BadgeDelta deltaType="moderateDecrease">.3%</BadgeDelta>
       </Flex>
       <Flex
         justifyContent="start"
         alignItems="baseline"
         className="space-x-3 truncate"
       >
-        <Metric>15,778</Metric>
-        <Text>from 15,023</Text>
+        <Metric>231,532</Metric>
+        <Text>from 229,067</Text>
       </Flex>
       <TabGroup
         index={selectedIndex}
@@ -118,7 +110,7 @@ export default function Contests() {
           <Tab>Recall</Tab>
         </TabList>
       </TabGroup>
-      {ballots
+      {statistics
         .filter((item) => item.location === selectedLocation)
         .map((item) => (
           <div key={item.title} className="space-y-2 mt-4">
@@ -126,7 +118,7 @@ export default function Contests() {
               <Text>{item.title}</Text>
               <Text>{`${item.value}% ${item.metric}`}</Text>
             </Flex>
-            <ProgressBar showAnimation value={item.value} color={item.color} />
+            <ProgressBar value={item.value} color={item.color} />
           </div>
         ))}
       <Flex className="mt-6 pt-4 border-t">
