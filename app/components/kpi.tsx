@@ -1,4 +1,12 @@
-import { Card, Metric, Text, Flex, BadgeDelta, DeltaType, Grid } from "@tremor/react";
+import {
+  Card,
+  Metric,
+  Text,
+  Flex,
+  BadgeDelta,
+  DeltaType,
+  Grid,
+} from "@tremor/react";
 
 const colors = {
   increase: "emerald",
@@ -38,14 +46,18 @@ export default function Kpi() {
       {categories.map((item) => (
         <Card key={item.title}>
           <Text>{item.title}</Text>
-          <Flex justifyContent="start" alignItems="baseline" className="truncate space-x-3">
+          <Flex
+            justifyContent="start"
+            alignItems="baseline"
+            className="truncate space-x-3"
+          >
             <Metric>{item.metric}</Metric>
             <Text className="truncate">from {item.metricPrev}</Text>
           </Flex>
           <Flex justifyContent="start" className="space-x-2 mt-4">
             <BadgeDelta deltaType={item.deltaType} />
             <Flex justifyContent="start" className="space-x-1 truncate">
-              <Text color={colors[item.deltaType]}>{item.delta}</Text>
+              <Text>{item.delta}</Text>
               <Text className="truncate">to previous month</Text>
             </Flex>
           </Flex>
