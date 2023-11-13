@@ -1,4 +1,4 @@
-// components/CandidateInformation.tsx
+// components/Contests.tsx
 "use client" 
 
 import React from "react";
@@ -31,7 +31,7 @@ const data = [
   },
 ];
 
-const CandidateInformation: React.FC = () => {
+const Contests: React.FC = () => {
   return (
     <ResponsiveContainer width="100%" height={300}>
       <BarChart
@@ -54,4 +54,4 @@ const CandidateInformation: React.FC = () => {
   );
 };
 
-export default CandidateInformation;
+export default Contests;

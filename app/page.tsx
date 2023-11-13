@@ -1,6 +1,8 @@
-import { Flex, Card, Button } from "@tremor/react";
+import { Text, Card, Button, Grid, Title } from "@tremor/react";
 import HistoricalElectionResults from "./components/HistoricalElectionResults";
-import CandidateInformation from "./components/CandidateInformation";
+import Contests from "./components/Contests";
+import Questions from "./components/Questions";
+import Kpi from "./components/kpi";
 
 const cardData = [
   {
@@ -10,25 +12,31 @@ const cardData = [
   },
   {
     title: "Candidate Information",
-    component: CandidateInformation,
+    component: Contests,
+    buttonText: "Click Here",
+  },
+  {
+    title: "Candidate Information",
+    component: Questions,
     buttonText: "Click Here",
   },
 ];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div style={{ width: "100%", height: "100%" }}>
-        <Flex className="gap-2">
-          {cardData.map((card, index) => (
-            <Card key={index} className="w-full h-full">
-              <h2>{card.title}</h2>
-              <card.component />
-              <Button>{card.buttonText}</Button>
-            </Card>
-          ))}
-        </Flex>
-      </div>
+    <main>
+      <Title>Dashboard</Title>
+      <Text>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</Text>
+      <Kpi />
+      <Grid numItemsMd={3} numItemsSm={2} className="mt-6 gap-6" >
+        {cardData.map((card, index) => (
+          <Card key={index} className="w-full h-full">
+            <h2>{card.title}</h2>
+            <card.component />
+            <Button>{card.buttonText}</Button>
+          </Card>
+        ))}
+      </Grid>
     </main>
   );
 }
