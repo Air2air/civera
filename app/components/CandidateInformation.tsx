@@ -1,29 +1,39 @@
 // components/CandidateInformation.tsx
-import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+"use client" 
+
+import React from "react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 const data = [
   {
-    name: 'Michael Bennet',
+    name: "Michael Bennet",
     votes: 1400000,
-    fill: '#4572A7',
+    fill: "#4572A7",
   },
   {
-    name: 'Joe O\'Dea',
+    name: "Joe O'Dea",
     votes: 1030000,
-    fill: '#AA4643',
+    fill: "#AA4643",
   },
   {
-    name: 'Brian Peotter',
+    name: "Brian Peotter",
     votes: 43500,
-    fill: '#80699B',
+    fill: "#80699B",
   },
 ];
 
 const CandidateInformation: React.FC = () => {
   return (
     <ResponsiveContainer width="100%" height={300}>
-        
       <BarChart
         data={data}
         margin={{
@@ -38,7 +48,7 @@ const CandidateInformation: React.FC = () => {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="votes"  />
+        <Bar dataKey="votes" />
       </BarChart>
     </ResponsiveContainer>
   );
