@@ -42,7 +42,7 @@ const categories = [
 
 export default function Kpi() {
   return (
-    <Grid numItemsSm={2} numItemsLg={3} className="gap-6">
+    <Grid numItemsSm={2} numItemsLg={3} className="gap-2">
       {categories.map((item) => (
         <Card key={item.title}>
           <Text>{item.title}</Text>
