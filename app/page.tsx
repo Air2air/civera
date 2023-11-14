@@ -1,7 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { Card, Metric, Text, Flex, BadgeDelta, Grid } from "@tremor/react";
+import {
+  Card,
+  Metric,
+  Text,
+  Flex,
+  BadgeDelta,
+  Grid,
+  AreaChart,
+} from "@tremor/react";
 import Contests from "./components/Contests";
 import Ballots from "./components/Ballots";
 import Statistics from "./components/Statistics";
@@ -17,9 +25,27 @@ export default function Home() {
     <>
       <Kpi handleClick={handleClick} />
       <Grid numItemsSm={2} numItemsLg={3} className="mt-3 gap-2">
-        {activeComponent === "Contests" && <Contests />}
-        {activeComponent === "Ballots" && <Ballots />}
-        {activeComponent === "Statistics" && <Statistics />}
+        <div
+          className={`${
+            activeComponent === "Contests" ? "opacity-100" : "opacity-0"
+          } transition-opacity duration-300`}
+        >
+          <Contests />
+        </div>
+        <div
+          className={`${
+            activeComponent === "Ballots" ? "opacity-100" : "opacity-0"
+          } transition-opacity duration-300`}
+        >
+          <Ballots />
+        </div>
+        <div
+          className={`${
+            activeComponent === "Statistics" ? "opacity-100" : "opacity-0"
+          } transition-opacity duration-300`}
+        >
+          <Statistics />
+        </div>
       </Grid>
     </>
   );
@@ -49,6 +75,30 @@ const categories = [
   },
 ];
 
+const data = [
+  {
+    Month: "Jan 21",
+    Sales: 2890,
+    Profit: 2400,
+    Customers: 4938,
+  },
+  {
+    Month: "Feb 21",
+    Sales: 1890,
+    Profit: 1398,
+    Customers: 2938,
+  },
+  {
+    Month: "Jul 21",
+    Sales: 3490,
+    Profit: 4300,
+    Customers: 2345,
+  },
+];
+
+const valueFormatter = (number: number) =>
+  `$${Intl.NumberFormat("us").format(number).toString()}`;
+
 function Kpi({ handleClick }: { handleClick: (component: string) => void }) {
   return (
     <Grid numItemsSm={2} numItemsLg={3} className="gap-2">
@@ -58,22 +108,59 @@ function Kpi({ handleClick }: { handleClick: (component: string) => void }) {
           onClick={() => handleClick(item.title)}
           className="hover:bg-blue-50 transition-colors duration-200 cursor-pointer"
         >
-          <Text>{item.title}</Text>
+          <Flex alignItems="start">
+            <Text>{item.title}</Text>
+            <BadgeDelta deltaType={item.deltaType}>{item.delta}</BadgeDelta>
+          </Flex>
           <Flex
+            className="space-x-3 truncate"
             justifyContent="start"
             alignItems="baseline"
-            className="truncate space-x-3"
           >
             <Metric>{item.metric}</Metric>
-            <Text className="truncate">from {item.metricPrev}</Text>
+            <Text>from {item.metricPrev}</Text>
           </Flex>
-          <Flex justifyContent="start" className="space-x-2 mt-4">
-            <BadgeDelta deltaType={item.deltaType} />
-            <Flex justifyContent="start" className="space-x-1 truncate">
-              <Text>{item.delta}</Text>
-              <Text className="truncate">from previous month</Text>
-            </Flex>
-          </Flex>
+          <div style={{ height: 120, width: "100%", marginTop:30 }}>
+            <AreaChart
+              categories={["Sales", "Votes"]}
+              showGridLines={false}
+              startEndOnly={true}
+              showYAxis={false}
+              showLegend={false}
+              className="h-32"
+              data={[
+                {
+                  "Votes": 3000,
+                  month: "Jan 21, 2023",
+                },
+                {
+                  "Votes": 2000,
+                  month: "Feb 21, 2023",
+                },
+                {
+                  "Votes": 1700,
+                  month: "Mar 21, 2023",
+                },
+                {
+                  "Votes": 2500,
+                  month: "Apr 21, 2023",
+                },
+                {
+                  "Votes": 1890,
+                  month: "May 21, 2023",
+                },
+                {
+                  "Votes": 2000,
+                  month: "Jun 21, 2023",
+                },
+                {
+                  "Votes": 3000,
+                  month: "Jul 21, 2023",
+                },
+              ]}
+              index="month"
+            />
+          </div>
         </Card>
       ))}
     </Grid>
