@@ -35,22 +35,21 @@ export default function RootLayout({
         <div className={`container mx-auto ${darkMode ? "dark" : ""}`}>
           <Callout
             className="mt-4 mb-8"
-            title="Illustrating a gradual approach"
+            title="A gradual approach for user engagement"
             icon={CheckCircleIcon}
             color="blue"
           >
             <div className="my-2">
               The intent is to not overwhelm the user with too many choices
-              initially.
+              initially, but to entice them to drill down.
             </div>
 
             <div className="my-2">
-              The top 3 cards are placeholders for the most critical information with a typical tab implementation on click.
+              The top 3 cards are summaries of the most critical information.  A typical tab implementation happens on click.
             </div>
 
             <div className="my-2">
-              The lower panel will include the advanced search filters for the
-              category.
+              The lower panel here just has placeholder stuff.  In real life it includes the advanced search filters and whatever sorting and filtering is needed for the category.
             </div>
           </Callout>
 
