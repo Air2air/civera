@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   Metric,
@@ -23,29 +23,23 @@ export default function Home() {
 
   return (
     <>
-      <Kpi handleClick={handleClick} />
-      <Grid numItemsSm={2} numItemsLg={3} className="mt-3 gap-2">
-        <div
-          className={`${
-            activeComponent === "Contests" ? "opacity-100" : "opacity-0"
-          } transition-opacity duration-300`}
-        >
-          <Contests />
-        </div>
-        <div
-          className={`${
-            activeComponent === "Ballots" ? "opacity-100" : "opacity-0"
-          } transition-opacity duration-300`}
-        >
-          <Ballots />
-        </div>
-        <div
-          className={`${
-            activeComponent === "Statistics" ? "opacity-100" : "opacity-0"
-          } transition-opacity duration-300`}
-        >
-          <Statistics />
-        </div>
+      <Kpi handleClick={handleClick} activeComponent={activeComponent} />
+      <Grid numItems={1} className="mt-3 gap-2">
+        {activeComponent === "Contests" && (
+          <div className="transition-opacity duration-300">
+            <Contests />
+          </div>
+        )}
+        {activeComponent === "Ballots" && (
+          <div className="transition-opacity duration-300">
+            <Ballots />
+          </div>
+        )}
+        {activeComponent === "Statistics" && (
+          <div className="transition-opacity duration-300">
+            <Statistics />
+          </div>
+        )}
       </Grid>
     </>
   );
@@ -117,14 +111,40 @@ const getColor = (deltaType: string) => {
   }
 };
 
-function Kpi({ handleClick }: { handleClick: (component: string) => void }) {
+function getCardClassName(
+  initialized: boolean,
+  activeComponent: string | null,
+  itemTitle: string
+) {
+  if (!initialized) {
+    return "hover:bg-blue-50 transition-all duration-400 cursor-pointer opacity-100";
+  } else if (activeComponent === itemTitle) {
+    return "hover:bg-blue-50 transition-all duration-400 cursor-pointer opacity-100";
+  } else {
+    return "hover:bg-blue-50 transition-all duration-400 cursor-pointer opacity-70";
+  }
+}
+
+function Kpi({
+  handleClick,
+  activeComponent,
+}: {
+  handleClick: (component: string) => void;
+  activeComponent: string | null;
+}) {
+  const [initialized, setInitialized] = useState(false);
+
+  useEffect(() => {
+    setInitialized(true);
+  }, []);
+
   return (
     <Grid numItemsSm={2} numItemsLg={3} className="gap-2">
       {categories.map((item) => (
         <Card
           key={item.title}
           onClick={() => handleClick(item.title)}
-          className="hover:bg-blue-50 transition-colors duration-200 cursor-pointer"
+          className={getCardClassName(initialized, activeComponent, item.title)}
         >
           <Flex alignItems="start">
             <Text>{item.title}</Text>
@@ -146,8 +166,7 @@ function Kpi({ handleClick }: { handleClick: (component: string) => void }) {
               showYAxis={false}
               showLegend={false}
               className="h-32"
-              // colors={[getColor(item.deltaType)]}
-              colors={['rose', getColor(item.deltaType)]}
+              colors={["rose", getColor(item.deltaType)]}
               data={data}
               index="month"
             />

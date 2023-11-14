@@ -43,3 +43,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 } 
+
+
+.card-active {
+  opacity: 1;
+}
+
+.card-inactive {
+  opacity: .6;
+}

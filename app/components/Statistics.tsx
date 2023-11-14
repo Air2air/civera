@@ -86,18 +86,18 @@ export default function Statistics() {
   const selectedLocation = selectedIndex === 0 ? "A" : "B";
 
   return (
-    <Card className="max-w-md mx-auto">
+    <Card>
       <Flex alignItems="start">
         <Text>Recent Statistics</Text>
-        <BadgeDelta deltaType="moderateDecrease">.3%</BadgeDelta>
+        <BadgeDelta deltaType="moderateIncrease">0.9%</BadgeDelta>
       </Flex>
       <Flex
         justifyContent="start"
         alignItems="baseline"
         className="space-x-3 truncate"
       >
-        <Metric>231,532</Metric>
-        <Text>from 229,067</Text>
+        <Metric>18,726</Metric>
+        <Text>from 18,112</Text>
       </Flex>
       <TabGroup
         index={selectedIndex}

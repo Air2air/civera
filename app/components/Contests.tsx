@@ -94,7 +94,7 @@ export default function Contests() {
   const selectedLocation = selectedIndex === 0 ? "A" : "B";
 
   return (
-    <Card className="max-w-md mx-auto">
+    <Card>
       <Flex alignItems="start">
         <Text>Recent Contests</Text>
         <BadgeDelta deltaType="moderateIncrease">2.3%</BadgeDelta>

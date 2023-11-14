@@ -86,10 +86,10 @@ export default function Ballots() {
   const selectedLocation = selectedIndex === 0 ? "A" : "B";
 
   return (
-    <Card className="max-w-md mx-auto">
+    <Card>
       <Flex alignItems="start">
         <Text>Recent Ballots</Text>
-        <BadgeDelta deltaType="moderateDecrease">.3%</BadgeDelta>
+        <BadgeDelta deltaType="moderateDecrease">0.3%</BadgeDelta>
       </Flex>
       <Flex
         justifyContent="start"
