@@ -33,9 +33,9 @@ export default function RootLayout({
       >
         <div className={`container mx-auto ${darkMode ? "dark" : ""}`}>
           <Flex justifyContent="end" className="mb-4">
-          <Button variant="secondary" onClick={toggleTheme}>
-            {darkMode ? "Light" : "Dark"}
-          </Button>
+            <Button variant="secondary" onClick={toggleTheme}>
+              {darkMode ? "Light" : "Dark"}
+            </Button>
           </Flex>
           {children}
         </div>
