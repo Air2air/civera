@@ -77,27 +77,45 @@ const categories = [
 
 const data = [
   {
-    Month: "Jan 21",
-    Sales: 2890,
-    Profit: 2400,
-    Customers: 4938,
+    Votes: 3000,
+    month: "Jan 21, 2023",
   },
   {
-    Month: "Feb 21",
-    Sales: 1890,
-    Profit: 1398,
-    Customers: 2938,
+    Votes: 2000,
+    month: "Feb 21, 2023",
   },
   {
-    Month: "Jul 21",
-    Sales: 3490,
-    Profit: 4300,
-    Customers: 2345,
+    Votes: 1700,
+    month: "Mar 21, 2023",
+  },
+  {
+    Votes: 2500,
+    month: "Apr 21, 2023",
+  },
+  {
+    Votes: 1890,
+    month: "May 21, 2023",
+  },
+  {
+    Votes: 2000,
+    month: "Jun 21, 2023",
+  },
+  {
+    Votes: 3000,
+    month: "Jul 21, 2023",
   },
 ];
 
-const valueFormatter = (number: number) =>
-  `$${Intl.NumberFormat("us").format(number).toString()}`;
+const getColor = (deltaType: string) => {
+  switch (deltaType) {
+    case "moderateIncrease":
+      return "teal" as "teal";
+    case "moderateDecrease":
+      return "rose" as "rose";
+    default:
+      return "teal"; // default color if deltaType is not recognized
+  }
+};
 
 function Kpi({ handleClick }: { handleClick: (component: string) => void }) {
   return (
@@ -120,7 +138,7 @@ function Kpi({ handleClick }: { handleClick: (component: string) => void }) {
             <Metric>{item.metric}</Metric>
             <Text>from {item.metricPrev}</Text>
           </Flex>
-          <div style={{ height: 120, width: "100%", marginTop:30 }}>
+          <div style={{ height: 120, width: "100%", marginTop: 30 }}>
             <AreaChart
               categories={["Sales", "Votes"]}
               showGridLines={false}
@@ -128,36 +146,9 @@ function Kpi({ handleClick }: { handleClick: (component: string) => void }) {
               showYAxis={false}
               showLegend={false}
               className="h-32"
-              data={[
-                {
-                  "Votes": 3000,
-                  month: "Jan 21, 2023",
-                },
-                {
-                  "Votes": 2000,
-                  month: "Feb 21, 2023",
-                },
-                {
-                  "Votes": 1700,
-                  month: "Mar 21, 2023",
-                },
-                {
-                  "Votes": 2500,
-                  month: "Apr 21, 2023",
-                },
-                {
-                  "Votes": 1890,
-                  month: "May 21, 2023",
-                },
-                {
-                  "Votes": 2000,
-                  month: "Jun 21, 2023",
-                },
-                {
-                  "Votes": 3000,
-                  month: "Jul 21, 2023",
-                },
-              ]}
+              // colors={[getColor(item.deltaType)]}
+              colors={['rose', getColor(item.deltaType)]}
+              data={data}
               index="month"
             />
           </div>
