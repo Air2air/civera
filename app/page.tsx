@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <>
       <Kpi handleClick={handleClick} activeComponent={activeComponent} />
-      <Grid numItems={1} className="mt-3 gap-2">
+      <Grid numItems={1} className="mt-3 gap-4">
         {activeComponent === "Contests" && (
           <div className="transition-opacity duration-300">
             <Contests />
@@ -139,7 +139,7 @@ function Kpi({
   }, []);
 
   return (
-    <Grid numItemsSm={2} numItemsLg={3} className="gap-2">
+    <Grid numItemsSm={2} numItemsLg={3} className="mt-3 gap-3">
       {categories.map((item) => (
         <Card
           key={item.title}

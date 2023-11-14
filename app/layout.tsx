@@ -1,10 +1,11 @@
 "use client";
 
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Button, Flex, Grid } from "@tremor/react";
+import { Button, Callout, Flex } from "@tremor/react";
 import { useState } from "react";
 import "./globals.css";
+import Search from "./components/Search";
+import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,8 +33,36 @@ export default function RootLayout({
         style={{ padding: 40 }}
       >
         <div className={`container mx-auto ${darkMode ? "dark" : ""}`}>
-          <Flex justifyContent="end" className="mb-4">
-            <Button variant="secondary" onClick={toggleTheme}>
+          <Callout
+            className="mt-4 mb-8"
+            title="Illustrating a gradual approach"
+            icon={CheckCircleIcon}
+            color="blue"
+          >
+            <div className="my-2">
+              The intent is to not overwhelm the user with too many choices
+              initially.
+            </div>
+
+            <div className="my-2">
+              The top 3 cards are placeholders for the most critical information with a typical tab implementation on click.
+            </div>
+
+            <div className="my-2">
+              The lower panel will include the advanced search filters for the
+              category.
+            </div>
+          </Callout>
+
+          <Flex justifyContent="between" className="mb-4" alignItems="center">
+            <div className="w-1/2">
+              <Search />
+            </div>
+            <Button
+              className="flex self-end"
+              variant="secondary"
+              onClick={toggleTheme}
+            >
               {darkMode ? "Light" : "Dark"}
             </Button>
           </Flex>

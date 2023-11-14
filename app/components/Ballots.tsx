@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
+import { ArrowUpRightIcon } from "@heroicons/react/20/solid";
 import {
   Card,
   TabList,
@@ -89,7 +89,7 @@ export default function Ballots() {
     <Card>
       <Flex alignItems="start">
         <Text>Recent Ballots</Text>
-        <BadgeDelta deltaType="moderateDecrease">0.3%</BadgeDelta>
+        <BadgeDelta deltaType="moderateDecrease">.3%</BadgeDelta>
       </Flex>
       <Flex
         justifyContent="start"
