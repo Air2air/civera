@@ -43,11 +43,9 @@ export default function RootLayout({
               The intent is to not overwhelm the user with too many choices
               initially, but to entice them to drill down.
             </div>
-
             <div className="my-2">
-              The top 3 cards are summaries of the most critical information.  A typical tab implementation happens on click.
+              The top 3 cards are clickable summaries of the most critical information.  A typical tab implementation happens on click.
             </div>
-
             <div className="my-2">
               The lower panel here just has placeholder stuff.  In real life it includes the advanced search filters and whatever sorting and filtering is needed for the category.
             </div>
