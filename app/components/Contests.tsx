@@ -1,99 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
-import {
-  Card,
-  TabList,
-  Tab,
-  ProgressBar,
-  Text,
-  Flex,
-  Button,
-  Metric,
-  BadgeDelta,
-  TabGroup,
-  Title,
-} from "@tremor/react";
+import { Card, Text, Flex, Metric, BadgeDelta, Title } from "@tremor/react";
 
-const ballots = [
-  {
-    title: "Measure A",
-    value: 68,
-    metric: "Yes",
-    location: "A",
-    color: "teal" as "teal",
-  },
-  {
-    title: "Measure B",
-    value: 54,
-    metric: "Yes",
-    location: "A",
-    color: "teal" as "teal",
-  },
-  {
-    title: "Measure C",
-    value: 68,
-    metric: "No",
-    location: "A",
-    color: "rose" as "rose",
-  },
-  {
-    title: "Measure D",
-    value: 82,
-    metric: "No",
-    location: "B",
-    color: "rose" as "rose",
-  },
-  {
-    title: "Measure E",
-    value: 60,
-    metric: "Yes",
-    location: "B",
-    color: "teal" as "teal",
-  },
-  {
-    title: "Measure F",
-    value: 58,
-    metric: "Yes",
-    location: "B",
-    color: "teal" as "teal",
-  },
-  {
-    title: "Measure G",
-    value: 64,
-    metric: "No",
-    location: "C",
-    color: "rose" as "rose",
-  },
-  {
-    title: "Measure H",
-    value: 58,
-    metric: "No",
-    location: "C",
-    color: "rose" as "rose",
-  },
-  {
-    title: "Measure I",
-    value: 62,
-    metric: "Yes",
-    location: "C",
-    color: "teal" as "teal",
-  },
-];
-
-interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
-  value: number;
-  label?: string;
-  tooltip?: string;
-  showAnimation?: boolean;
-  bgcolor?: string | undefined;
-}
-
-export default function Contests() {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const selectedLocation = selectedIndex === 0 ? "A" : "B";
-
+const Contests = () => {
   return (
     <Card>
       <Flex alignItems="start">
@@ -108,24 +18,79 @@ export default function Contests() {
         <Metric>15,778</Metric>
         <Text>from 15,023</Text>
       </Flex>
-      <Flex justifyContent="between" alignItems="baseline" className="my-2">
-        <Card className="m-2 w-1/4">
-          <Title>Trending stat</Title>
+      <Flex
+        justifyContent="between"
+        alignItems="baseline"
+        className="mx-2 my-4"
+      >
+        <Card className="mr-2 w-1/4 flex justify-center items-center bg-slate-100">
+          <Title>Trending contest stat</Title>
         </Card>
 
-        <Card className="m-2 w-1/4">
-          <Title>Trending stat</Title>
+        <Card className="mx-2 w-1/4 flex justify-center items-center bg-slate-100">
+          <Title>Trending contest stat</Title>
         </Card>
 
-        <Card className="m-2 w-1/4">
-          <Title>Trending stat</Title>
+        <Card className="mx-2 w-1/4 flex justify-center items-center bg-slate-100">
+          <Title>Trending contest stat</Title>
         </Card>
 
-        <Card className="m-2 w-1/4">
-          <Title>Trending stat</Title>
+        <Card className="ml-2 w-1/4 flex justify-center items-center bg-slate-100">
+          <Title>Trending contest stat</Title>
         </Card>
       </Flex>
-      Pertinent notifications
+
+      <Card className="m-2 my-4 flex flex-col justify-center items-between bg-slate-100">
+        <Flex
+          justifyContent="between"
+          alignItems="baseline"
+          className="mx-2 my-4"
+        >
+          <Card className="p-2 mr-2 w-1/4 flex justify-center items-center bg-white">
+            <Title>Insights filter/sort</Title>
+          </Card>
+          <Card className="p-2 mx-2 w-1/4 flex justify-center items-center bg-white">
+          <Title>Insights filter/sort</Title>
+          </Card>
+          <Card className="p-2 mx-2 w-1/4 flex justify-center items-center bg-white">
+          <Title>Insights filter/sort</Title>
+          </Card>
+          <Card className="p-2 ml-2 w-1/4 flex justify-center items-center bg-white">
+          <Title>Insights filter/sort</Title>
+          </Card>
+        </Flex>
+        <Title className="h-28 flex justify-center items-center ">
+          Contest Insights Chart
+        </Title>
+
+      </Card>
+
+      <Card className="m-2 my-4 flex flex-col justify-center items-between bg-slate-100">
+        <Flex
+          justifyContent="between"
+          alignItems="baseline"
+          className="mx-2 my-4"
+        >
+          <Card className="p-2 mr-2 w-1/4 flex justify-center items-center bg-white">
+            <Title>List filter/sort</Title>
+          </Card>
+          <Card className="p-2 mx-2 w-1/4 flex justify-center items-center bg-white">
+            <Title>List filter/sort</Title>
+          </Card>
+          <Card className="p-2 mx-2 w-1/4 flex justify-center items-center bg-white">
+            <Title>List filter/sort</Title>
+          </Card>
+
+          <Card className="p-2 ml-2 w-1/4 flex justify-center items-center bg-white">
+            <Title>List filter/sort</Title>
+          </Card>
+        </Flex>
+        <Title className="h-64 flex justify-center items-center ">
+          Contest Results List
+        </Title>
+      </Card>
     </Card>
   );
-}
+};
+
+export default Contests;
