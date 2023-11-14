@@ -26,17 +26,18 @@ export default function Home() {
       <Kpi handleClick={handleClick} activeComponent={activeComponent} />
       <Grid numItems={1} className="mt-3 gap-4">
         {activeComponent === "Contests" && (
-          <div className="transition-opacity duration-300">
+          <div className="transition-all duration-300">
+
             <Contests />
           </div>
         )}
         {activeComponent === "Ballots" && (
-          <div className="transition-opacity duration-300">
+          <div className="transition-all duration-300">
             <Ballots />
           </div>
         )}
         {activeComponent === "Statistics" && (
-          <div className="transition-opacity duration-300">
+          <div className="transition-all duration-300">
             <Statistics />
           </div>
         )}
@@ -117,11 +118,11 @@ function getCardClassName(
   itemTitle: string
 ) {
   if (!initialized) {
-    return "hover:bg-blue-50 transition-all duration-400 cursor-pointer opacity-100";
+    return "hover:bg-blue-50 transition-all duration-400 cursor-pointer bg-blue-50";
   } else if (activeComponent === itemTitle) {
-    return "hover:bg-blue-50 transition-all duration-400 cursor-pointer opacity-100";
+    return "hover:bg-blue-50 transition-all duration-400 cursor-pointer bg-blue-50";
   } else {
-    return "hover:bg-blue-50 transition-all duration-400 cursor-pointer opacity-70";
+    return "hover:bg-blue-50 transition-all duration-400 cursor-pointer";
   }
 }
 

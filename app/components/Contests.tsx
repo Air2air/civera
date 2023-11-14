@@ -13,6 +13,7 @@ import {
   Metric,
   BadgeDelta,
   TabGroup,
+  Title,
 } from "@tremor/react";
 
 const ballots = [
@@ -107,38 +108,24 @@ export default function Contests() {
         <Metric>15,778</Metric>
         <Text>from 15,023</Text>
       </Flex>
-      <TabGroup
-        index={selectedIndex}
-        onIndexChange={setSelectedIndex}
-        className="mt-6"
-      >
-        <TabList>
-          <Tab>Statutory</Tab>
-          <Tab>Referendum</Tab>
-          <Tab>Recall</Tab>
-        </TabList>
-      </TabGroup>
-      {ballots
-        .filter((item) => item.location === selectedLocation)
-        .map((item) => (
-          <div key={item.title} className="space-y-2 mt-4">
-            <Flex>
-              <Text>{item.title}</Text>
-              <Text>{`${item.value}% ${item.metric}`}</Text>
-            </Flex>
-            <ProgressBar showAnimation value={item.value} color={item.color} />
-          </div>
-        ))}
-      <Flex className="mt-6 pt-4 border-t">
-        <Button
-          size="xs"
-          variant="light"
-          icon={ArrowUpRightIcon}
-          iconPosition="right"
-        >
-          View more
-        </Button>
+      <Flex justifyContent="between" alignItems="baseline" className="my-2">
+        <Card className="m-2 w-1/4">
+          <Title>Trending stat</Title>
+        </Card>
+
+        <Card className="m-2 w-1/4">
+          <Title>Trending stat</Title>
+        </Card>
+
+        <Card className="m-2 w-1/4">
+          <Title>Trending stat</Title>
+        </Card>
+
+        <Card className="m-2 w-1/4">
+          <Title>Trending stat</Title>
+        </Card>
       </Flex>
+      Pertinent notifications
     </Card>
   );
 }

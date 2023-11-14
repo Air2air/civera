@@ -2,7 +2,10 @@
 
 import { MagnifyingGlassCircleIcon } from "@heroicons/react/24/solid";
 
-import { TextInput } from "@tremor/react";
+import {
+
+  TextInput,
+} from "@tremor/react";
 
 const Search = () => {
   return (
@@ -12,6 +15,7 @@ const Search = () => {
         placeholder="Quick Search..."
         className="p-2"
       />
+
     </>
   );
 };
