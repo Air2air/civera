@@ -24,19 +24,19 @@ const Contests = () => {
         className="mx-2 my-4"
       >
         <Card className="mr-2 w-1/4 flex justify-center items-center bg-slate-100">
-          <Title>Trending contest stat</Title>
+          <Text>Trending contest stat</Text>
         </Card>
 
         <Card className="mx-2 w-1/4 flex justify-center items-center bg-slate-100">
-          <Title>Trending contest stat</Title>
+          <Text>Trending contest stat</Text>
         </Card>
 
         <Card className="mx-2 w-1/4 flex justify-center items-center bg-slate-100">
-          <Title>Trending contest stat</Title>
+          <Text>Trending contest stat</Text>
         </Card>
 
         <Card className="ml-2 w-1/4 flex justify-center items-center bg-slate-100">
-          <Title>Trending contest stat</Title>
+          <Text>Trending contest stat</Text>
         </Card>
       </Flex>
 
@@ -47,22 +47,21 @@ const Contests = () => {
           className="mx-2 my-4"
         >
           <Card className="p-2 mr-2 w-1/4 flex justify-center items-center bg-white">
-            <Title>Insights filter/sort</Title>
+            <Text>Insights filter/sort</Text>
           </Card>
           <Card className="p-2 mx-2 w-1/4 flex justify-center items-center bg-white">
-          <Title>Insights filter/sort</Title>
+            <Text>Insights filter/sort</Text>
           </Card>
           <Card className="p-2 mx-2 w-1/4 flex justify-center items-center bg-white">
-          <Title>Insights filter/sort</Title>
+            <Text>Insights filter/sort</Text>
           </Card>
           <Card className="p-2 ml-2 w-1/4 flex justify-center items-center bg-white">
-          <Title>Insights filter/sort</Title>
+            <Text>Insights filter/sort</Text>
           </Card>
         </Flex>
         <Title className="h-28 flex justify-center items-center ">
           Contest Insights Chart
         </Title>
-
       </Card>
 
       <Card className="m-2 my-4 flex flex-col justify-center items-between bg-slate-100">
@@ -72,17 +71,17 @@ const Contests = () => {
           className="mx-2 my-4"
         >
           <Card className="p-2 mr-2 w-1/4 flex justify-center items-center bg-white">
-            <Title>List filter/sort</Title>
+            <Text>List filter/sort</Text>
           </Card>
           <Card className="p-2 mx-2 w-1/4 flex justify-center items-center bg-white">
-            <Title>List filter/sort</Title>
+            <Text>List filter/sort</Text>
           </Card>
           <Card className="p-2 mx-2 w-1/4 flex justify-center items-center bg-white">
-            <Title>List filter/sort</Title>
+            <Text>List filter/sort</Text>
           </Card>
 
           <Card className="p-2 ml-2 w-1/4 flex justify-center items-center bg-white">
-            <Title>List filter/sort</Title>
+            <Text>List filter/sort</Text>
           </Card>
         </Flex>
         <Title className="h-64 flex justify-center items-center ">
